@@ -2,10 +2,18 @@ import React from "react";
 import classes from "./Header.module.sass";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
-import { Button, IconButton, Toolbar, Typography } from "@mui/material";
-import MenuIcon from "@mui/icons-material/Menu";
+import {  useAppDispatch } from "../../store";
+import { Button, Toolbar, Typography } from "@mui/material";
+import { Link } from "react-router-dom";
+import { logout } from "../../store/reducers/Auth/authSlice";
 
 const Header = () => {
+  const sing = !!window.localStorage.getItem("user");
+  const dispatch = useAppDispatch()
+  const onOut = () => {
+    dispatch(logout())
+    window.localStorage.removeItem('user')
+  }
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -13,10 +21,16 @@ const Header = () => {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Takeoff-staff
           </Typography>
-          <div>
-            <Button color="inherit" variant="text">Create contact</Button>
-            <Button color="inherit">Login</Button>
-          </div>
+          {sing && (
+            <div>
+              <Button color="inherit" variant="text">
+                Create contact
+              </Button>
+              <Link to={"/login"} className={classes.link}>
+                <Button color="inherit" onClick={onOut}>Out</Button>
+              </Link>
+            </div>
+          )}
         </Toolbar>
       </AppBar>
     </Box>

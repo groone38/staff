@@ -14,7 +14,7 @@ const Card = () => {
           Name
         </Typography>
         <Typography sx={{ mb: 1.5 }} color="text.secondary">
-          employee
+          email
         </Typography>
         <Typography variant="body2">
           number: 1231231123

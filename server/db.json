@@ -1,0 +1,54 @@
+{
+  "contacts": [
+    {
+      "id": 1,
+      "email": "andrey@lisin.ru",
+      "password": "123123",
+      "name": "Andrey",
+      "company": "Takeoff-staff",
+      "number": 88005553535
+    },
+    {
+      "id": 2,
+      "email": "lisin@yandex.ru",
+      "password": "123123",
+      "name": "Anton",
+      "company": "Takeoff-staff",
+      "number": 88005553535
+    },
+    {
+      "id": 3,
+      "email": "andrey@lisin.ru",
+      "password": "123123",
+      "name": "Andrey",
+      "company": "Takeoff-staff",
+      "number": 88005553535
+    },
+    {
+      "id": 4,
+      "email": "andrey@lisin.ru",
+      "password": "123123",
+      "name": "Andrey",
+      "company": "Takeoff-staff",
+      "number": 88005553535
+    },
+    {
+      "id": 5,
+      "email": "andrey@lisin.ru",
+      "password": "123123",
+      "name": "Andrey",
+      "company": "Takeoff-staff",
+      "number": 88005553535
+    },
+    {
+      "email": "andrey@lisin.ru",
+      "password": "123123",
+      "id": 6
+    },
+    {
+      "email": "12e12e",
+      "password": "e2e2e",
+      "id": 7
+    }
+  ]
+}
