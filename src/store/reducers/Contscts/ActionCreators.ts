@@ -17,6 +17,27 @@ export const fetchUsers = createAsyncThunk(
     }
   );
 
+  interface DataCreate {
+    email: string
+    name: string
+    number: number | null
+    company: string
+  }
+
+  export const createContacts = createAsyncThunk(
+    "user/create",
+    async (data: DataCreate, thunkAPI) => {
+      try {
+        const responce = await axios.post(
+          `http://localhost:3001/users`, {...data}
+        );
+        return responce.data;
+      } catch (error: any) {
+        return thunkAPI.rejectWithValue(error.message);
+      }
+    }
+  );
+
   export const deleteContacts = createAsyncThunk(
     "user/delete",
     async (id:  number | null | undefined, thunkAPI) => {

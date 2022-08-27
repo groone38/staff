@@ -62,9 +62,6 @@ const ModalLogin = () => {
             name="email"
             onChange={valueChange}
           />
-          <FormHelperText id="my-helper-text">
-            We'll never share your email.
-          </FormHelperText>
         </FormControl>
         <FormControl className={classes.form__input}>
           <InputLabel htmlFor="password">Password</InputLabel>
@@ -75,9 +72,6 @@ const ModalLogin = () => {
             name="password"
             onChange={valueChange}
           />
-          <FormHelperText id="my-helper-text">
-            We'll never share your password.
-          </FormHelperText>
         </FormControl>
         <Button variant="contained" onClick={onSubmit}>
           Login

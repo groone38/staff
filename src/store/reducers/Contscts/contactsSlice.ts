@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { IContacts } from "../../../models/IContacts";
-import { deleteContacts, fetchUsers } from "./ActionCreators";
+import { createContacts, deleteContacts, fetchUsers } from "./ActionCreators";
 
 interface ContactsState {
   contacts: IContacts[];
@@ -34,15 +34,17 @@ export const contactSlice = createSlice({
       state.isLoading = false;
       state.error = "Не верно введены данные";
     },
-    // [deleteContacts.fulfilled.type]: (state) => {
-    //   state.isLoading = false;
-    // },
-    // [deleteContacts.pending.type]: (state) => {
-    //   state.isLoading = true;
-    // },
-    // [deleteContacts.rejected.type]: (state) => {
-    //   state.isLoading = false;
-    // },
+    [createContacts.fulfilled.type]: (state) => {
+      state.isLoading = false;
+      state.error = "";
+    },
+    [createContacts.pending.type]: (state) => {
+      state.isLoading = true;
+    },
+    [createContacts.rejected.type]: (state, action: PayloadAction<string>) => {
+      state.isLoading = false;
+      state.error = "Не верно введены данные";
+    },
   },
 });
 
