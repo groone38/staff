@@ -14,6 +14,7 @@ import classes from "./ModalLogin.module.sass";
 import { auth } from "./../../store/reducers/Auth/actionCreators";
 import { useAppDispatch } from "../../store";
 import { useAppSelector } from "./../../store/index";
+import { useNavigate } from 'react-router-dom';
 
 const ModalLogin = () => {
   const dispatch = useAppDispatch();
@@ -22,6 +23,8 @@ const ModalLogin = () => {
     password: "",
   });
   const loaded = useAppSelector((state) => state.auth.isLoading);
+  const error = useAppSelector(state => state.auth.error)
+  const navigate = useNavigate()
   const valueChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     setValue({
       ...value,
@@ -31,6 +34,9 @@ const ModalLogin = () => {
 
   const onSubmit = async () => {
     await dispatch(auth(value));
+    if(window.localStorage.getItem('user')) {
+      navigate("/contacts")
+    }
   };
 
   return (
@@ -76,6 +82,7 @@ const ModalLogin = () => {
         <Button variant="contained" onClick={onSubmit}>
           Login
         </Button>
+        {error && <span className={classes.error}>{error}</span>}
       </form>
     </>
   );

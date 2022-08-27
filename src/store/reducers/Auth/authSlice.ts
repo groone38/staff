@@ -46,7 +46,7 @@ export const authSlice = createSlice({
       },
       [auth.rejected.type]: (state, action: PayloadAction<string>) => {
         state.isLoading = false;
-        state.error = action.payload;
+        state.error = 'Не верно введены данные';
       },
     },
   });

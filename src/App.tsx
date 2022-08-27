@@ -8,10 +8,8 @@ import { useAppSelector } from "./store";
 
 function App() {
   const navigate = useNavigate()
-  
   const token = !!window.localStorage.getItem('user')
   useEffect(() => {
-    console.log('work')
     if(token) {
       navigate('/contacts')
     } else {
