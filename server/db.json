@@ -33,20 +33,11 @@
       "number": 88005553213
     },
     {
-      "id": 5,
-      "email": "father@mail.ru",
-      "password": "123123",
-      "name": "Dann",
-      "company": "QWERTY",
-      "number": 880055524411
-    },
-    {
-      "id": 6,
-      "email": "john@yandex.com",
-      "password": "123123",
-      "name": "John",
-      "company": "Takeoff-staff",
-      "number": 8800555789
+      "email": "fathqweer@mail.ru",
+      "name": "JOJO",
+      "number": "8800555244123123123123",
+      "company": "asd",
+      "id": 5
     },
     {
       "email": "groone38@yandex.ru",

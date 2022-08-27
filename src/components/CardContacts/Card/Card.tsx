@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, CardActions, CardContent, Typography } from "@mui/material";
 import classes from "./Card.module.sass";
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import { useAppDispatch } from "../../../store";
 import { deleteContacts } from "../../../store/reducers/Contscts/ActionCreators";
 import { fetchUsers } from './../../../store/reducers/Contscts/ActionCreators';
+import ModalCreate from "../../ModalCreate/ModalCreate";
+import ModalEdit from "../../ModalEdit/ModalEdit";
 
 interface ContactProps {
   company: string
@@ -16,6 +18,7 @@ interface ContactProps {
 
 const Card = ({company, email, name, number, id}: ContactProps) => {
   const dispatch = useAppDispatch()
+  const [active, setActive] = useState(false)
   const del = async (id:  number | null | undefined) => {
     await dispatch(deleteContacts(id))
     await dispatch(fetchUsers())
@@ -39,9 +42,11 @@ const Card = ({company, email, name, number, id}: ContactProps) => {
         </Typography>
       </CardContent>
       <CardActions className={classes.card__footer}>
-        <Button size="small">Edit card</Button>
+        <Button size="small" onClick={() => setActive(true)}>Edit card</Button>
         <Button size="small" onClick={() => del(id)}><DeleteOutlineOutlinedIcon/></Button>
       </CardActions>
+      {/* <ModalEdit active={active} setActive={setActive} /> */}
+      <ModalCreate active={active} setActive={setActive} company={company} email={email} name={name} number={number} id={id} btn={'Edit'}/>
     </div>
   );
 };

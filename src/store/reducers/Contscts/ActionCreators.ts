@@ -21,6 +21,7 @@ export const fetchUsers = createAsyncThunk(
     name: string
     number: number | null
     company: string
+    id?: null | number;
   }
 
   export const createContacts = createAsyncThunk(
@@ -36,6 +37,20 @@ export const fetchUsers = createAsyncThunk(
       }
     }
   );
+
+  export const editContact = createAsyncThunk(
+    "user/edit",
+    async (data: DataCreate, thunkAPI) => {
+      try {
+        const responce = await axios.put(
+          `http://localhost:3001/users/${data.id}`, {...data}
+        );
+        return responce.data;
+      } catch (error: any) {
+        return thunkAPI.rejectWithValue(error.message);
+      }
+    }
+  )
 
   export const deleteContacts = createAsyncThunk(
     "user/delete",

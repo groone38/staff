@@ -10,7 +10,7 @@ import ModalCreate from "./../../components/ModalCreate/ModalCreate";
 
 const Header = () => {
   const sing = !!window.localStorage.getItem("user");
-  const [active, setActive] = useState(true);
+  const [active, setActive] = useState(false);
   const dispatch = useAppDispatch();
   const onOut = () => {
     dispatch(logout());
