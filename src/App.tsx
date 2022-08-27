@@ -4,14 +4,17 @@ import CardsContacts from "./components/CardContacts/CardsContacts";
 import ModalLogin from "./components/ModalLogin/ModalLogin";
 import Header from "./UI/Header/Header";
 import classes from "./App.module.sass";
-import { useAppSelector } from "./store";
+import { useAppDispatch } from "./store";
+import { fetchUsers } from "./store/reducers/Contscts/ActionCreators";
 
 function App() {
   const navigate = useNavigate()
-  const token = !!window.localStorage.getItem('user')
+  const token = window.localStorage.getItem('user')
+  const dispatch = useAppDispatch()
   useEffect(() => {
-    if(token) {
+    if(!!token) {
       navigate('/contacts')
+      dispatch(fetchUsers())
     } else {
       navigate('/')
     }

@@ -1,8 +1,8 @@
 export interface IContacts {
-  id?: string
-  email: string
-  password?: string
-  name: string
-  company: string
-  number: number
+  id: number | null;
+  email: string;
+  password: string;
+  name: string;
+  company: string;
+  number: number | null;
 }
