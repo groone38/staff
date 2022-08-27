@@ -6,7 +6,6 @@ import { useAppDispatch } from "../../../store";
 import { deleteContacts } from "../../../store/reducers/Contscts/ActionCreators";
 import { fetchUsers } from './../../../store/reducers/Contscts/ActionCreators';
 import ModalCreate from "../../ModalCreate/ModalCreate";
-import ModalEdit from "../../ModalEdit/ModalEdit";
 
 interface ContactProps {
   company: string
@@ -45,7 +44,6 @@ const Card = ({company, email, name, number, id}: ContactProps) => {
         <Button size="small" onClick={() => setActive(true)}>Edit card</Button>
         <Button size="small" onClick={() => del(id)}><DeleteOutlineOutlinedIcon/></Button>
       </CardActions>
-      {/* <ModalEdit active={active} setActive={setActive} /> */}
       <ModalCreate active={active} setActive={setActive} company={company} email={email} name={name} number={number} id={id} btn={'Edit'}/>
     </div>
   );
