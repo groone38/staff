@@ -1,6 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from 'axios';
-import { useAppDispatch } from "../..";
 
 export const fetchUsers = createAsyncThunk(
     "user/fetchAll",

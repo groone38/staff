@@ -1,19 +1,10 @@
-import {
-  Box,
-  FormControl,
-  FormHelperText,
-  Input,
-  InputLabel,
-  Modal,
-  Typography,
-  Button
-} from "@mui/material";
+import { Box, Modal, Button } from "@mui/material";
 import React, { useState } from "react";
 import { useAppDispatch } from "../../store";
 import { createContacts } from "../../store/reducers/Contscts/ActionCreators";
 import FormCreate from "../../UI/FormCreate/FormCreate";
 import classes from "./ModalCreate.module.sass";
-import { fetchUsers } from './../../store/reducers/Contscts/ActionCreators';
+import { fetchUsers } from "./../../store/reducers/Contscts/ActionCreators";
 
 type Props = {
   active: boolean;
@@ -38,8 +29,8 @@ function ModalCreate({ active, setActive }: Props) {
 
   const onSubmit = async () => {
     await dispatch(createContacts(data));
-    await dispatch(fetchUsers())
-    setActive(false)
+    await dispatch(fetchUsers());
+    setActive(false);
   };
 
   return (
@@ -51,7 +42,9 @@ function ModalCreate({ active, setActive }: Props) {
     >
       <Box className={classes.modal}>
         <FormCreate valueChange={valueChange} />
-        <Button variant="contained" onClick={onSubmit}>Create</Button>
+        <Button variant="contained" onClick={onSubmit}>
+          Create
+        </Button>
       </Box>
     </Modal>
   );

@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { IContacts } from "../../../models/IContacts";
-import { createContacts, deleteContacts, fetchUsers } from "./ActionCreators";
+import { createContacts, fetchUsers } from "./ActionCreators";
 
 interface ContactsState {
   contacts: IContacts[];
