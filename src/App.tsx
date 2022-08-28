@@ -8,24 +8,24 @@ import { useAppDispatch } from "./store";
 import { fetchUsers } from "./store/reducers/Contscts/ActionCreators";
 
 function App() {
-  const navigate = useNavigate()
-  const token = window.localStorage.getItem('user')
-  const dispatch = useAppDispatch()
+  const navigate = useNavigate();
+  const token = window.localStorage.getItem("user");
+  const dispatch = useAppDispatch();
   useEffect(() => {
-    if(!!token) {
-      navigate('/contacts')
-      dispatch(fetchUsers())
+    if (!!token) {
+      navigate("/contacts");
+      dispatch(fetchUsers());
     } else {
-      navigate('/')
+      navigate("/");
     }
-  }, [token])
+  }, [token]);
   return (
     <div>
       <Header />
       <div className={classes.wrapper}>
         <Routes>
-          <Route path="/" element={<ModalLogin />}/>
-          {token && <Route path="/contacts" element={<CardsContacts />}/>}
+          <Route path="/" element={<ModalLogin />} />
+          {token && <Route path="/contacts" element={<CardsContacts />} />}
         </Routes>
       </div>
     </div>

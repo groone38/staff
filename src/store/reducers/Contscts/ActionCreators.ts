@@ -4,13 +4,12 @@ import axios from 'axios';
 export const fetchUsers = createAsyncThunk(
     "user/fetchAll",
     async (_, thunkAPI) => {
-      console.log('work');
       try {
         const responce = await axios.get(
           `http://localhost:3001/users`
         );
         return responce.data;
-      } catch (error: any) {
+      } catch (error) {
         return thunkAPI.rejectWithValue(error.message);
       }
     }
@@ -32,7 +31,7 @@ export const fetchUsers = createAsyncThunk(
           `http://localhost:3001/users`, {...data}
         );
         return responce.data;
-      } catch (error: any) {
+      } catch (error) {
         return thunkAPI.rejectWithValue(error.message);
       }
     }
@@ -46,8 +45,8 @@ export const fetchUsers = createAsyncThunk(
           `http://localhost:3001/users/${data.id}`, {...data}
         );
         return responce.data;
-      } catch (error: any) {
-        return thunkAPI.rejectWithValue(error.message);
+      } catch (e) {
+        return thunkAPI.rejectWithValue(e.message);
       }
     }
   )
@@ -60,7 +59,7 @@ export const fetchUsers = createAsyncThunk(
           `http://localhost:3001/users/${id}`
         );
         return responce.data;
-      } catch (error: any) {
+      } catch (error) {
         return thunkAPI.rejectWithValue(error.message);
       }
     }

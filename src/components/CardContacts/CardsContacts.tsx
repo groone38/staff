@@ -33,9 +33,6 @@ const CardsContacts = () => {
         {contactsSearch.map(item => (
           <Card key={item.id} {...item} />
         ))}
-        {/* {state.map((item) => (
-          <Card key={item.id} {...item} />
-        ))} */}
       </div>
     </>
   );

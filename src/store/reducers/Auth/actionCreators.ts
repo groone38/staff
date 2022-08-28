@@ -14,12 +14,11 @@ export const auth = createAsyncThunk(
       const { data } = await axios.get<IContacts[]>(
         `http://localhost:3001/users?email_like=${value.email}`
       );
-      console.log(data);
       if (data[0].password === value.password) {
         window.localStorage.setItem("user", `${data[0].id}`);
       }
       return data;
-    } catch (error: any) {
+    } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
   }
